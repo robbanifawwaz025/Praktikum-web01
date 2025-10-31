@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Registration Form</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      width: 420px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .row div {
+      flex: 1;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #888;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+
+    fieldset {
+      border: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 20px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .terms {
+      margin-top: 15px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .terms label {
+      font-weight: normal;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h1>Class Registration Form</h1>
+    <p>Please fill out the form below to register for our class.</p>
+
+    <form action="#" method="POST">
+
+      <div class="row">
+        <div>
+          <label>First Name</label>
+          <input type="text" placeholder="John" required>
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Email Address</label>
+          <input type="email" placeholder="john.doe@example.com" required>
+        </div>
+        <div>
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+1 (555) 123-4567" required>
+        </div>
+      </div>
+
+      <div>
+        <label>Class Level</label>
+        <select required>
+          <option value="" disabled selected>Select your class level</option>
+          <option>D3</option>
+          <option>D4</option>
+          <option>S1</option>
+        </select>
+        <div class="hint">Please choose the appropriate level for your experience</div>
+      </div>
+
+      <fieldset>
+        <h2>Class Days</h2>
+        <p style="font-size:13px;color:#666;margin-top:-5px;margin-bottom:10px;">
+          Please select the days you are available to attend class
+        </p>
+        <div class="checkbox-group">
+          <label><input type="checkbox"> Monday</label>
+          <label><input type="checkbox"> Tuesday</label>
+          <label><input type="checkbox"> Wednesday</label>
+          <label><input type="checkbox"> Thursday</label>
+          <label><input type="checkbox"> Friday</label>
+          <label><input type="checkbox"> Saturday</label>
+        </div>
+      </fieldset>
+
+      <div class="terms">
+        <label><input type="checkbox" required> I agree to the terms and conditions of the class registration</label>
+      </div>
+
+      <button type="submit">Register Now!</button>
+    </form>
+  </div>
+
+</body>
+</html>
