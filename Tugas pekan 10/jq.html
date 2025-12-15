@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow jQuery</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 500px;
+            height: 250px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="slideshow-container">
+    <img class="slide" src="1.jpg" alt="Gambar 1">
+    <img class="slide" src="foto2.jpg" alt="Gambar 2">
+    <img class="slide" src="3.jpg" alt="Gambar 3">
+</div>
+
+<div class="buttons">
+    <button id="prevBtn" class="btn">Sebelumnya</button>
+    <button id="nextBtn" class="btn">Berikutnya</button>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var slides = $('.slide');
+        var currentSlide = 0;
+        var fadeSpeed = 800;
+
+        // tampilkan slide pertama
+        slides.eq(currentSlide).show();
+
+        function showSlide(index) {
+            slides.eq(currentSlide).fadeOut(fadeSpeed, function () {
+                currentSlide = index;
+                slides.eq(currentSlide).fadeIn(fadeSpeed);
+            });
+        }
+
+        $('#nextBtn').click(function () {
+            var nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex);
+        });
+
+        $('#prevBtn').click(function () {
+            var prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+        });
+    });
+</script>
+
+</body>
+</html>

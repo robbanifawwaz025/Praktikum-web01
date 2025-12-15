@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Mahasiswa</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0e4e4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .biodata-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        #fotoProfil {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        .info p {
+            margin: 5px 0;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #388fec;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Biodata Mahasiswa</h1>
+
+    <div id="biodataCard" class="biodata-card">
+        <img id="fotoProfil" src="1.jpg">
+        <div class="info">
+            <p>Nama: <strong id="namaMhs"></strong></p>
+            <p>NIM: <strong id="nimMhs"></strong></p>
+            <p>Program Studi: <strong id="prodiMhs"></strong></p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button onclick="ubahNama()">Ubah Nama</button>
+        <button onclick="ubahProdi()">Ubah Prodi</button>
+        <button onclick="gantiFoto()">Ganti Foto</button>
+        <button onclick="sembunyikanBiodata()">Sembunyikan Biodata</button>
+        <button onclick="tampilkanBiodata()">Tampilkan Biodata</button>
+    </div>
+</div>
+
+<script>
+    let currentName = "Muhammad Fawwaz Robbani";
+    let currentProdi = "Sistem Informasi";
+
+    const defaultPhotoUrl = "1.jpg";
+    const newPhotoUrl = "foto2.jpg"; 
+    let isDefaultPhoto = true;
+
+    function ubahNama() {
+        const namaBaru = prompt("Masukkan nama baru:", currentName);
+        if (namaBaru) {
+            currentName = namaBaru;
+            document.getElementById("namaMhs").innerHTML = currentName;
+        }
+    }
+
+    function ubahProdi() {
+        const prodiBaru = prompt("Masukkan program studi baru:", currentProdi);
+        if (prodiBaru) {
+            currentProdi = prodiBaru;
+            document.getElementById("prodiMhs").innerHTML = currentProdi;
+        }
+    }
+
+    function gantiFoto() {
+        const foto = document.getElementById("fotoProfil");
+        foto.src = isDefaultPhoto ? newPhotoUrl : defaultPhotoUrl;
+        isDefaultPhoto = !isDefaultPhoto;
+    }
+
+    function sembunyikanBiodata() {
+        document.getElementById("biodataCard").style.display = "none";
+    }
+
+    function tampilkanBiodata() {
+        document.getElementById("biodataCard").style.display = "flex";
+    }
+
+    window.onload = function () {
+        document.getElementById("namaMhs").innerHTML = currentName;
+        document.getElementById("nimMhs").innerHTML = "1125139";
+        document.getElementById("prodiMhs").innerHTML = currentProdi;
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        #notification {
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            color: rgb(181, 9, 220);
+            background-color: #4CAF50; /* Warna awal (hijau) */
+            border-radius: 5px;
+            /* Memastikan elemen tersembunyi dan tidak memakan ruang saat dimulai */
+            display: none; 
+            opacity: 0;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Notifikasi Animasi chaining</h2>
+    <button id="show-btn">tampilkan Notifikasi</button>
+
+    <div class="container">
+        <div id="notification">
+            Halo Selamat Datang     </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#show-btn").click(function(){
+                // Mereset notifikasi jika sudah pernah ditampilkan sebelumnya
+                $("#notification").stop(true).css({"background-color": "#e9c8eb", "display": "none", "opacity": 0});
+
+                // Rantai Metode jQuery
+                $("#notification")
+                    .css("background-color", "#e9c8eb") // Mengubah warna (kuning)
+                    .animate({opacity: 1, height: 'toggle'}, {duration: 600, specialEasing: {opacity: 'linear', height: 'swing'}}) // Memudar masuk & Meluncur ke bawah (menampilkan elemen)
+                    .delay(3000) // Menunggu 3 detik
+                    .animate({opacity: 0, height: 'toggle'}, {duration: 600, specialEasing: {opacity: 'linear', height: 'swing'}}); // Memudar keluar & Meluncur ke atas (menyembunyikan elemen)
+            });
+        });
+    </script>
+</body>
+</html>
